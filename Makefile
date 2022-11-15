@@ -1,7 +1,7 @@
-REGISTRY ?= hyc-cp4mcm-team-docker-local.artifactory.swg-devops.com
-TAG ?= latest
+REGISTRY ?= docker.io
+TAG ?= demo
 
-DOCKER_IMAGE := $(REGISTRY)/cp/aiopsedge/java-grpc-connector-template:$(TAG)
+DOCKER_IMAGE := $(REGISTRY)/sghung/java-grpc-connector-template:$(TAG)
 
 ifeq ($(shell uname -s),Darwin)
 	# gnu-sed, can be installed using homebrew
