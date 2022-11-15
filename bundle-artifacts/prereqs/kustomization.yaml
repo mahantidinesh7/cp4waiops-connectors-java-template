@@ -16,8 +16,8 @@ configurations:
 
 images:
   - name: java-grpc-connector-template
-    newName: PLACEHOLDER_REGISTRY_ADDRESS/cp/aiopsedge/java-grpc-connector-template
-    newTag: latest
+    newName: docker.io/sghung/java-grpc-connector-template
+    newTag: demo
   - name: generic-topology-processor
     newName: cp.icr.io/cp/cp4waiops/generic-topology-processor
     digest: sha256:16a936ef8e0b67ad7511ae3d1590f1f568a06dba51761e6cfd0a82cb5c60a4aa
