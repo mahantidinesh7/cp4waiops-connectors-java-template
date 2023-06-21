@@ -4,7 +4,6 @@ kind: Kustomization
 resources:
   - connectorschema.yaml
   - microedgeconfiguration.yaml
-  - topics.yaml
 
 configurations:
   - custom-images.yaml
