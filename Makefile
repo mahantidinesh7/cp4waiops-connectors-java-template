@@ -1,7 +1,7 @@
-REGISTRY ?= PLACEHOLDER_REGISTRY_ADDRESS
-TAG ?= latest
+REGISTRY ?= docker.io
+TAG ?= demo-dinesh
 
-DOCKER_IMAGE := $(REGISTRY)/cp/aiopsedge/java-grpc-connector-template:$(TAG)
+DOCKER_IMAGE := $(REGISTRY)/mahantidinesh/java-grpc-connector-template:$(TAG)
 
 ifeq ($(shell uname -s),Darwin)
 	# gnu-sed, can be installed using homebrew
