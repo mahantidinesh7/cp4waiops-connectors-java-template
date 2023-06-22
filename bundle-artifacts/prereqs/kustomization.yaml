@@ -11,4 +11,4 @@ configurations:
 images:
   - name: java-grpc-connector-template
     newName: docker.io/mahantidinesh/java-grpc-connector-template
-    newTag: demo-dinesh
+    newTag: demo-dinesh-one

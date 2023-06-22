@@ -1,5 +1,5 @@
 REGISTRY ?= docker.io
-TAG ?= demo-dinesh
+TAG ?= demo-dinesh-one
 
 DOCKER_IMAGE := $(REGISTRY)/mahantidinesh/java-grpc-connector-template:$(TAG)
 
