@@ -180,7 +180,7 @@ public class ConnectorTemplate extends ConnectorBase {
     }
 
     protected void updateStatus() {
-        final Duration StatusTTL = Duration.ofMinutes(5);
+        final Duration StatusTTL = Duration.ofMinutes(4);
         final Duration LastGatherPeriod = Duration.ofMinutes(3);
 
         long lastGather = _cpuMetricLastGathered.get();
