@@ -102,6 +102,7 @@ spec:
     - "{{connector.common.category.events}}"
     url: https://ibm.biz/int-github
     isObserver: false
+    deploymentType: ["local", "remote"]
     apiAdaptor: connection
     datasourceType: events
     sidePanelTitle: "Java gRPC Connector Template"
