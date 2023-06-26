@@ -181,16 +181,8 @@ public class ConnectorTemplate extends ConnectorBase {
 
     protected void updateStatus() {
         final Duration StatusTTL = Duration.ofMinutes(4);
-        final Duration LastGatherPeriod = Duration.ofMinutes(3);
-
-        long lastGather = _cpuMetricLastGathered.get();
-        if (System.nanoTime() - lastGather > LastGatherPeriod.toNanos()) {
-            Map<String, String> details = new HashMap<>();
-            details.put("reason", "failed to gather cpu metrics recently");
-            emitStatus(ConnectorStatus.Phase.Retrying, StatusTTL, details);
-        } else {
-            emitStatus(ConnectorStatus.Phase.Running, StatusTTL);
-        }
+        logger.log(Level.INFO, "Send connector status as running");
+        emitStatus(ConnectorStatus.Phase.Running, StatusTTL);
     }
 
     protected void generateData(String start, String end, String metricName) {
