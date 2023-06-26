@@ -142,33 +142,12 @@ public class ConnectorTemplate extends ConnectorBase {
 
     @Override
     public void run() {
-        final long NANOSECONDS_PER_SECOND = 1000000000;
-        final long TASK_PERIOD_S = 60;
-        final long STATUS_UPDATE_PERIOD_S = 150;
-        final long LOOP_PERIOD_MS = 1000;
+        final long LOOP_PERIOD_MS = 5000;
 
         boolean interrupted = false;
-        long taskLastRan = 0;
-        long statusLastUpdated = 0;
         while (!interrupted) {
             try {
-                Configuration config = _configuration.get();
-                updateWorkload(config);
-
-                // Some background task that executes periodically
-                if ((System.nanoTime() - taskLastRan) / NANOSECONDS_PER_SECOND > TASK_PERIOD_S) {
-                    taskLastRan = System.nanoTime();
-
-                    checkCPUThreshold(config);
-                    generateTopologySampleData(config);
-                }
-
-                // Periodic status update
-                if ((System.nanoTime() - statusLastUpdated) / NANOSECONDS_PER_SECOND > STATUS_UPDATE_PERIOD_S) {
-                    statusLastUpdated = System.nanoTime();
-                    updateStatus();
-                }
-
+                updateStatus();
                 // Wait
                 Thread.sleep(LOOP_PERIOD_MS);
             } catch (InterruptedException ignored) {
