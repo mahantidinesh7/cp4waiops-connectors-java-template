@@ -9,21 +9,6 @@ spec:
   components:
   - apiType: AsyncAPI
     name: connector
-  - apiType: AsyncAPI
-    name: observer-orchestrator
-    controllerConfig:
-      - name: servicename
-        value: generic-topology-processor
-      - name: serviceport
-        value: '9166'
-      - name: servicepath
-        value: '/1.0/cp4waiops-cartridge.generic-observer/jobs'
-      - name: jobpostpath
-        value: '/listen'
-      - name: mapping
-        value: '{ "parameters":{ "provider":"unique-provider"}, "schedule": {}}'
-      - name: neverupdate
-        value: "true"
   documentation: https://github.ibm.com/quicksilver/cp4waiops-grpc-templates/blob/master/open-liberty/README.md
   permissions:
     channels:
@@ -102,7 +87,7 @@ spec:
     - "{{connector.common.category.events}}"
     url: https://ibm.biz/int-github
     isObserver: false
-    deploymentType: ["local"]
+    deploymentType: ["local", "remote"]
     apiAdaptor: connection
     datasourceType: events
     sidePanelTitle: "Java gRPC Connector Template"
