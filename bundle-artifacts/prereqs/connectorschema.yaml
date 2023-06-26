@@ -91,7 +91,7 @@ spec:
     apiAdaptor: connection
     datasourceType: events
     sidePanelTitle: "Java gRPC Connector Template"
-    sidePanelDescription: {{connector.elk.description}}
+    sidePanelDescription: "{{connector.elk.description}}"
     sidePanelInfoHeader: "Information"
     sidePanelInfo:
     - "TODO"
