@@ -12,6 +12,11 @@ spec:
       - name: deployment
         path: /bundle-artifacts/prereqs
         type: kustomize
+        kustomization:
+          images:
+            - name: java-grpc-connector-template
+              newName: docker.io/mahantidinesh/java-grpc-connector-template
+              newTag: four
   instanced:
     repo: 'https://github.com/mahantidinesh7/cp4waiops-connectors-java-template'
     branch: Fix
@@ -21,3 +26,8 @@ spec:
       - name: connector
         path: /bundle-artifacts/connector
         type: kustomize
+        kustomization:
+          images:
+            - name: java-grpc-connector-template
+              newName: docker.io/mahantidinesh/java-grpc-connector-template
+              newTag: four

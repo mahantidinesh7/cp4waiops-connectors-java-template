@@ -1,5 +1,5 @@
 REGISTRY ?= docker.io
-TAG ?= three
+TAG ?= four
 
 DOCKER_IMAGE := $(REGISTRY)/mahantidinesh/java-grpc-connector-template:$(TAG)
 
@@ -15,7 +15,7 @@ docker-login:
 
 docker-build:
 	chmod ug+x container/import-certs.sh
-	docker build -f container/Dockerfile -t $(DOCKER_IMAGE) .
+	docker build --platform linux/amd64 -f container/Dockerfile -t $(DOCKER_IMAGE) .
 
 docker-push:
 	docker push $(DOCKER_IMAGE)
