@@ -25,28 +25,8 @@ spec:
     additionalProperties: false
     oneOf:
     - required:
-      - cpuThreshold
-      - severityLevel
-      - expirySeconds
-      - enableCPUHeavyWorkload
       - enableGatherMetrics
     properties:
-      cpuThreshold:
-        type: integer
-        description: Target CPU for Threshold
-        default: 80
-      severityLevel:
-        type: integer
-        description: Severity level of events to emit (1-6)
-        default: 6
-      expirySeconds:
-        type: integer
-        description: Amount of time in seconds before the event is dismissed
-        default: 300
-      enableCPUHeavyWorkload:
-        type: boolean
-        description: Starts or stops a cpu intensive task
-        default: false
       enableGatherMetrics:
         type: boolean
         description: Enables or disables metric connector template
@@ -55,30 +35,13 @@ spec:
         type: string
         description: Name of metric to generate
         default: Usage%
-      isLiveData:
-        type: boolean
-        description: True enables live data or false enables historical
       deploymentType:
         type: string
         description: Dictates if deployment is local or remote
         default: local
       display_name:
         description: Display name of the connection
-        type: string
-      historicStartDate:
-        description: Date to start dumping generated sample data
-        type: string
-      historicEndDate:
-        description: Date to end dumping generated sample data
-        type: string
-      numCPUWorkloadThreads:
-        type: integer
-        description: Number of threads to use for cpu intensive task
-        default: 1
-      enableTopologySampleGeneration:
-        type: boolean
-        description: Enable generation of sample topology data
-        default: false        
+        type: string        
     type: object
   uiSchema:
     type: java-grpc-connector-template
@@ -111,54 +74,6 @@ spec:
       apiMapping: connection_config.display_name
       formStep: addConnection
       isRequired: true
-    - id: cpuThreshold
-      element: input
-      type: number
-      label: "CPU Usage Threshold"
-      placeholder: "80"
-      min: 1
-      max: 2147483647
-      step: 1
-      defaultValue: 80
-      helperText: "Specify the cpu usage threshold. The default is 80"
-      apiMapping: connection_config.cpuThreshold
-      formStep: addConnection
-      isRequired: true
-    - id: severityLevel
-      element: input
-      type: number
-      label: "Event Severity Level"
-      placeholder: "6"
-      min: 1
-      max: 6
-      step: 1
-      defaultValue: 6
-      helperText: "Specify the event severity level. The higher the value, the higher the severity. The default is 6."
-      apiMapping: connection_config.severityLevel
-      formStep: addConnection
-      isRequired: true
-    - id: expirySeconds
-      element: input
-      type: number
-      label: "Event Lifetime (s)"
-      placeholder: "80"
-      min: 1
-      max: 2147483647
-      step: 1
-      defaultValue: 300
-      helperText: "Specify the seconds to elapse before dismissing the event automatically. The default is 300."
-      apiMapping: connection_config.expirySeconds
-      formStep: addConnection
-      isRequired: true
-    - id: enableCPUHeavyWorkload
-      element: input
-      type: toggle
-      defaultToggled: false
-      label: "Enable workload with high CPU usage"
-      labelOff: "{{common.Off}}"
-      labelOn: "{{common.On}}"
-      apiMapping: connection_config.enableCPUHeavyWorkload
-      formStep: addConnection
     - id: enableGatherMetrics
       apiMapping: connection_config.enableGatherMetrics
       element: toggleForm
@@ -185,63 +100,6 @@ spec:
               apiMapping: connection_config.metricName
               formStep: addConnection
               isRequired: true
-            - id: isLiveData
-              apiMapping: connection_config.isLiveData
-              element: form
-              type: dynamic
-              label: "{{common.mode}}"
-              items:
-                - "{{common.Historical}}"
-                - "{{common.Live}}"
-              itemKeys: [false, true]
-              isRequired: true
-              formStep: addConnection
-              form:
-                - id: false
-                  rows:
-                    - id: start
-                      element: input
-                      type: date
-                      label: "{{connector.common.form.start_date.label}}"
-                      placeholder: "{{connector.common.form.start_date.placeholder}}"
-                      formStep: addConnection
-                      header: "{{connector.common.form.historicalData.header}}"
-                      headerLabel: "{{connector.common.form.historicalData.headerDesc}}"
-                      headerLabelWarning: "{{connector.common.form.historicalData.headerWarning}}"
-                      isRequired: true
-                      apiMapping: connection_config.historicStartDate
-                    - id: end
-                      element: input
-                      type: date
-                      label: "{{connector.common.form.end_date.label}}"
-                      placeholder: "{{connector.common.form.end_date.placeholder}}"
-                      formStep: addConnection
-                      isRequired: true
-                      apiMapping: connection_config.historicEndDate
-                - id: true
-                  rows:
-    - id: enableTopologySampleGeneration
-      element: input
-      type: toggle
-      defaultToggled: false
-      label: "Enable generic topology sample generation"
-      labelOff: "{{common.Off}}"
-      labelOn: "{{common.On}}"
-      apiMapping: connection_config.enableTopologySampleGeneration
-      formStep: addConnection
-    - id: numCPUWorkloadThreads
-      element: input
-      type: number
-      label: "Number of workload threads"
-      placeholder: "1"
-      min: 1
-      max: 10
-      step: 1
-      defaultValue: 1
-      helperText: "Specify the number of threads to spawn when the cpu heavy workload is enabled."
-      apiMapping: connection_config.numCPUWorkloadThreads
-      formStep: addConnection
-      isRequired: false
     - apiMapping: connection_config.deploymentType
       element: input
       formStep: addConnection
