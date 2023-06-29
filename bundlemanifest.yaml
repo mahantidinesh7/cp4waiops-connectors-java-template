@@ -15,8 +15,8 @@ spec:
         kustomization:
           images:
             - name: java-grpc-connector-template
-              newName: docker.io/mahantidinesh/java-grpc-connector-template
-              newTag: four
+              newName: docker.io/mahantidinesh/im
+              newTag: demo
   instanced:
     repo: 'https://github.com/mahantidinesh7/cp4waiops-connectors-java-template'
     branch: demo
@@ -29,5 +29,5 @@ spec:
         kustomization:
           images:
             - name: java-grpc-connector-template
-              newName: docker.io/mahantidinesh/java-grpc-connector-template
-              newTag: four
+              newName: docker.io/mahantidinesh/im
+              newTag: demo
