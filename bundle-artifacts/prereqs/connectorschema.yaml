@@ -45,7 +45,7 @@ spec:
     type: object
   uiSchema:
     type: java-grpc-connector-template
-    displayName: "Java gRPC Connector Template"
+    displayName: "IM"
     categories:
     - "{{connector.common.category.events}}"
     url: https://ibm.biz/int-github
@@ -53,7 +53,7 @@ spec:
     deploymentType: ["local", "remote"]
     apiAdaptor: connection
     datasourceType: events
-    sidePanelTitle: "Java gRPC Connector Template"
+    sidePanelTitle: "IM"
     sidePanelDescription: "{{connector.elk.description}}"
     sidePanelInfoHeader: "Information"
     sidePanelInfo:
