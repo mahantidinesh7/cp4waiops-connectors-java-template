@@ -54,7 +54,7 @@ public class ConnectorTemplate extends ConnectorBase {
     static final String THRESHOLD_BREACHED_CE_TYPE = "com.ibm.aiops.connectors.template.threshold-breached";
     static final String METRIC_GATHERED_CE_TYPE = "com.ibm.aiops.connectors.template.metric-gathered";
 
-    static final String METRIC_RESOURCE_ID = "database01.bigblue.com";
+    static final String METRIC_RESOURCE_ID = "IM";
 
     protected AtomicReference<Configuration> _configuration;
 
@@ -169,16 +169,16 @@ public class ConnectorTemplate extends ConnectorBase {
         long statusLastUpdated = 0;
         while (!interrupted) {
             try {
-                Configuration config = _configuration.get();
-                updateWorkload(config);
+                // Configuration config = _configuration.get();
+                // updateWorkload(config);
 
-                // Some background task that executes periodically
-                if ((System.nanoTime() - taskLastRan) / NANOSECONDS_PER_SECOND > TASK_PERIOD_S) {
-                    taskLastRan = System.nanoTime();
+                // // Some background task that executes periodically
+                // if ((System.nanoTime() - taskLastRan) / NANOSECONDS_PER_SECOND > TASK_PERIOD_S) {
+                //     taskLastRan = System.nanoTime();
 
-                    checkCPUThreshold(config);
-                    generateTopologySampleData(config);
-                }
+                //     checkCPUThreshold(config);
+                //     generateTopologySampleData(config);
+                // }
 
                 // Periodic status update
                 if ((System.nanoTime() - statusLastUpdated) / NANOSECONDS_PER_SECOND > STATUS_UPDATE_PERIOD_S) {

@@ -7,8 +7,8 @@ public class Configuration {
     private boolean enableCPUHeavyWorkload = false;
     private boolean enableGatherMetrics = true;
     private boolean isLiveData = false;
-    private String historicStartDate;
-    private String historicEndDate;
+    private String historicStartDate = "05/29/2023 09:30:00";
+    private String historicEndDate = "06/29/2023 09:30:00";
     private String metricName = "Usage%";
     private int numCPUWorkloadThreads = 1;
     private boolean enableTopologySampleGeneration = false;

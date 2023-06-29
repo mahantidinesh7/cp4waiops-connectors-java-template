@@ -5,7 +5,7 @@ metadata:
 spec:
   prereqs:
     repo: 'https://github.com/mahantidinesh7/cp4waiops-connectors-java-template'
-    branch: Fix
+    branch: demo
     authSecret:
       name: test-utilities-github-token
     components:
@@ -19,7 +19,7 @@ spec:
               newTag: four
   instanced:
     repo: 'https://github.com/mahantidinesh7/cp4waiops-connectors-java-template'
-    branch: Fix
+    branch: demo
     authSecret:
       name: test-utilities-github-token
     components:
